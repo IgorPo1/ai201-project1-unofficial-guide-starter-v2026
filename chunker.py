@@ -129,7 +129,7 @@ def split_documents(
                         text=piece_clean,
                         source=doc.source,
                         index=index,
-                        produced_by="chunker.py::split_documents",  # <--- Updates source attribution
+                        produced_by="chunker.py::split_documents",
                     )
                 )
                 index += 1

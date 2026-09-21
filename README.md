@@ -54,29 +54,45 @@
 
      Milestone 3. -->
 
-**Chunk 1** — source: `` — produced by: ``
+**Chunk 1** — source: `thread_bike_commute.txt` — produced by: `chunker.py::split_documents`
 
 ```
+THREAD: Is a bike worth it for a 20 minute walk commute?
+
+--- reply 1 (14 votes) ---
+Yeah. Cuts an 18 minute walk to about 6. The thing nobody mentions is storage — covered bike parking exists at three buildings and is full by 9am at all three.
 ```
 
-**Chunk 2** — source: `` — produced by: ``
+**Chunk 2** — source: `thread_commuting.txt` — produced by: `chunker.py::split_documents`
 
 ```
+--- reply 4 (17 votes) ---
+I commuted for two years. The thing that made it work was treating the train as study time rather than dead time.
 ```
 
-**Chunk 3** — source: `` — produced by: ``
+**Chunk 3** — source: `thread_laptop_specs.txt` — produced by: `chunker.py::split_documents`
 
 ```
+THREAD: How much laptop do I actually need for CS courses?
+
+--- reply 1 (31 votes) ---
+Less than the recommended spec page says. 16GB of RAM is the one number worth paying for; everything else you'll never notice.
 ```
 
-**Chunk 4** — source: `` — produced by: ``
+**Chunk 4** — source: `thread_office_hours_etiquette.txt` — produced by: `chunker.py::split_documents`
 
 ```
+THREAD: Is it weird to go to office hours with no specific question?
+
+--- reply 1 (44 votes) ---
+No, and this is the single most common thing first years get wrong. 'I'm following the lectures but I don't feel like I understand the shape of it' is a completely normal thing to say.
 ```
 
-**Chunk 5** — source: `` — produced by: ``
+**Chunk 5** — source: `thread_professor_email.txt` — produced by: `chunker.py::split_documents`
 
 ```
+--- reply 3 (15 votes) ---
+Empty office hours is the biggest unused resource here and I say that having wasted a year not going.
 ```
 
 ## Sample Answer
@@ -85,13 +101,18 @@
      visible. Milestone 4. -->
 
 **Question:**
+What clothes do students recommend for the winter?
 
 **Answer:**
 
 ```
+(best distance 0.513, cutoff 0.6)
+Students recommend wearing layers rather than a big coat, as well as boots with actual tread. (Source: thread_winter_advice.txt)
 ```
 
 **My relevance cutoff:**
+0.6
+
 
 <!-- The number you set in config.py, and how you got there.
 
@@ -105,6 +126,16 @@
 | Question | In corpus? | Best distance |
 |---|---|---|
 |  |  |  |
+| What do students say about parking availability? | Yes | 0.530 |
+| What clothes do students recommend for the winter? | Yes | 0.513 |
+| Which meal plan tier is right? | Yes | 0.232 |
+| What are best study spots that aren't the library? | Yes | 0.391 |
+| What laptop do I need for CS classes? | Yes | 0.296 |
+| What is the capital of Mongolia?	| No | 0.904 |
+| How do I change the oil in a diesel engine? | No | 0.898 |
+| Who won the 1994 World Cup? | No | 0.859 |
+| What is the recommended dosage of ibuprofen for a headache? | No | 0.760 |
+| How do I write a for loop in Rust? | No | 0.823
 
 ## How I Used AI
 
@@ -116,10 +147,15 @@
      "I used AI to help me code" is not.
 
      Milestone 5. -->
+     
+
 
 **1.**
+"I asked Gemini what aproaches existed for chunking. It introduced me to langchain_text_splitters, aproach using Splitting by double newlines (\n\n) and chunking with Overlap. I choosed the langchain_text_splitters, because it looks like the most flexible"
 
 **2.**
+AI helped me debuged my code. Remind me to install langchain_text_splitters (completely forgot that) and remind me that overalp cannot be more or equal chunk size.
+
 
 <!-- ── Stretch features ─────────────────────────────────────────────────────
      Doing one? Say so here BEFORE you start. A feature this README never
