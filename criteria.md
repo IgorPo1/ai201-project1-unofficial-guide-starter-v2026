@@ -57,7 +57,8 @@ in at least 4 of 5 tries.
 
 ## 4. Something about your chunks
 
-<!-- YOU WRITE THIS ONE.
+5 out of 5 chunks have "!" or "." in the end.
+
 
      How would you know if your chunks were the right size? Name something
      countable or observable.
@@ -72,6 +73,7 @@ in at least 4 of 5 tries.
 
 
 **Why this target:**
+It means that chunck size will slighly differ from my target value and each sentence will be complete. I'm not sure how to implement that.
 
 
 
@@ -79,7 +81,7 @@ in at least 4 of 5 tries.
 
 ## 5. Your choice
 
-<!-- YOU WRITE THIS ONE TOO.
+Every answer has exact citation of the source. Not even 1 word is changed in 5 out of 5 responses.
 
      Pick something you actually care about getting right. It could be about
      speed, about refusals, about a particular kind of question your corpus
@@ -90,7 +92,7 @@ in at least 4 of 5 tries.
 
 
 **Why this target:**
-
+I want the system to make exact citation and in my opinion even 1 word could change an understanding of the response. It fairly easy to verify, you just go to sited source and compare.
 
 
 ---

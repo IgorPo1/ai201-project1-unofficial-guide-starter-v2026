@@ -26,6 +26,7 @@ from dataclasses import dataclass
 
 import config
 from ingest import Document
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 
 @dataclass
@@ -80,7 +81,12 @@ def fallback_split(
     return chunks
 
 
-def split_documents(documents: list[Document]) -> list[Chunk]:
+def split_documents(
+        documents: list[Document],
+        chunk_size: int | None = None,
+        overlap: int | None = None,
+    ) -> list[Chunk]:
+    
     """
     Split documents into chunks. ⚠️ REPLACE THE BODY OF THIS IN MILESTONE 3.
 
@@ -97,7 +103,37 @@ def split_documents(documents: list[Document]) -> list[Chunk]:
       - Would splitting on paragraph breaks keep more thoughts intact than
         splitting on a character count?
     """
-    return fallback_split(documents)
+    chunk_size = chunk_size or config.CHUNK_SIZE
+    overlap = overlap or config.CHUNK_OVERLAP
+
+    if overlap >= chunk_size:
+        raise ValueError("overlap has to be smaller than chunk_size")
+
+    splitter = RecursiveCharacterTextSplitter(
+        chunk_size=chunk_size,
+        chunk_overlap=overlap,
+        separators=["\n\n", "\n", " ", ""]
+    )
+
+    chunks: list[Chunk] = []
+    
+    for doc in documents:
+        raw_pieces = splitter.split_text(doc.text)
+        index = 0
+        
+        for piece in raw_pieces:
+            piece_clean = piece.strip()
+            if piece_clean:
+                chunks.append(
+                    Chunk(
+                        text=piece_clean,
+                        source=doc.source,
+                        index=index,
+                        produced_by="chunker.py::split_documents",  # <--- Updates source attribution
+                    )
+                )
+                index += 1
+    return chunks
 
 
 def describe(chunks: list[Chunk]) -> str:

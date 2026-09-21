@@ -26,14 +26,15 @@ CORPUS = os.getenv("AI201_CORPUS", "advice_threads")
 # ─── Chunking (Milestone 3) ──────────────────────────────────────────────────
 # These are deliberately plain, generic numbers. Milestone 3 is where you
 # replace them with numbers that fit the documents you actually read.
+# with chunk size and overlap gives shortes chunk 28 for 
 
-CHUNK_SIZE = 400        # characters per chunk
-CHUNK_OVERLAP = 120     # characters shared between neighbouring chunks
+CHUNK_SIZE = 300        # characters per chunk
+CHUNK_OVERLAP = 100     # characters shared between neighbouring chunks
 
 
 # ─── Retrieval (Milestone 4) ─────────────────────────────────────────────────
 
-TOP_K = 5               # how many chunks to pull back per question
+TOP_K = 3               # how many chunks to pull back per question
 
 # The relevance gate. If the best chunk is further away than this, the system
 # refuses to answer instead of handing the model thin material.

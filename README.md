@@ -25,12 +25,13 @@
      questions your system answers. Write it for someone who has never seen
      this repo.
 
-     Milestone 5. -->
+     Milestone 5. --> I picked up advice_threads because information is very concise and even has a relevanse score (numbers of votes). It's looks like reddit with 1 question and 3 answers per topic. All corpus is about life on campus for example what meal plan to choose, where to study, etc.
+     
 
 ## Chunking Strategy
 
-**Chunk size:**
-**Overlap:**
+**Chunk size:** 300
+**Overlap:** 100
 
 <!-- What about YOUR documents made you pick these numbers? Short posts and
      long sectioned guides don't want the same chunking, and "800 seemed
@@ -40,7 +41,7 @@
      If you changed your mind partway through, say so and say why. That's worth
      more than pretending you got it right first time.
 
-     Milestone 3. -->
+     Milestone 3. --> I just tried couple random numbers based on the goal that ideal output, that should include 1 most relevant response (most voted). And this particular combination return the longest shortes chunk as 28 and 300 is enough to capture the longest most voted response.
 
 ## Sample Chunks
 
