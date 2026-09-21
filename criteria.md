@@ -75,6 +75,13 @@ in at least 4 of 5 tries.
 **Why this target:**
 It means that chunck size will slighly differ from my target value and each sentence will be complete. I'm not sure how to implement that.
 
+> **Revised in end of unit 1:** All chunks have 
+         > complete thoughts with no cut off at the start or at the end.
+         >
+         > **Why revised:** Before chunker correction
+         > it cut the sentenses mid word. Now it's works well with test questions
+         > but it could be broken again if i will use another corpus.
+
 
 
 ---
@@ -93,6 +100,8 @@ Every answer has exact citation of the source. Not even 1 word is changed in 5 o
 
 **Why this target:**
 I want the system to make exact citation and in my opinion even 1 word could change an understanding of the response. It fairly easy to verify, you just go to sited source and compare.
+
+
 
 
 ---
