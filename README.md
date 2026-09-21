@@ -1,6 +1,6 @@
 # The Unofficial Guide
 
-<!-- Replace this line with your name and which corpus you picked. -->
+Name: Igor Polidva | Corpus: advice_threads
 
 > **This file is your submission.** Fill it in as you go — most sections get
 > written during the milestone that produces them, not at the end.
@@ -125,7 +125,6 @@ Students recommend wearing layers rather than a big coat, as well as boots with 
 
 | Question | In corpus? | Best distance |
 |---|---|---|
-|  |  |  |
 | What do students say about parking availability? | Yes | 0.530 |
 | What clothes do students recommend for the winter? | Yes | 0.513 |
 | Which meal plan tier is right? | Yes | 0.232 |
@@ -154,7 +153,7 @@ Students recommend wearing layers rather than a big coat, as well as boots with 
 "I asked Gemini what aproaches existed for chunking. It introduced me to langchain_text_splitters, aproach using Splitting by double newlines (\n\n) and chunking with Overlap. I choosed the langchain_text_splitters, because it looks like the most flexible"
 
 **2.**
-AI helped me debuged my code. Remind me to install langchain_text_splitters (completely forgot that) and remind me that overalp cannot be more or equal chunk size.
+AI helped me debugged my code. Remind me to install langchain_text_splitters (completely forgot that) and remind me that overlap cannot be more or equal chunk size.
 
 
 <!-- ── Stretch features ─────────────────────────────────────────────────────
