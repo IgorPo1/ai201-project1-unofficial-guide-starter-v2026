@@ -101,7 +101,11 @@ Every answer has exact citation of the source. Not even 1 word is changed in 5 o
 **Why this target:**
 I want the system to make exact citation and in my opinion even 1 word could change an understanding of the response. It fairly easy to verify, you just go to sited source and compare.
 
-
+> **Revised in end of unit 1:** Each reponse contains direct quote
+         > from cited sourse.
+         >
+         > **Why revised:** The entire idea of RAG is that system summarize and rephrase
+         > that will alter text a little, so my previous criteria was incorrect.
 
 
 ---
