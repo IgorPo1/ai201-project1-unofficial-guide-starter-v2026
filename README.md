@@ -186,12 +186,78 @@ AI helped me debugged my code. Remind me to install langchain_text_splitters (co
 | 1. Retrieved chunk contains the answer | 4 of 5 | 5/5 | 5/5 | 5/5 | MET |
 | 2. Every answer names a source | 5 of 5 | 5/5 | 5/5 | 5/5 | MET |
 | 3. Gate stops out-of-corpus questions | 4 of 5 | 5/5 | 5/5 | 5/5 | MET |
-| 4. | | | | | |
-| 5. | | | | | |
+| 4. Chunks have "!" or "." in the end | 5 of 5 | | | | |
+| 5. Answer has exact citation of the source| 5 of 5 | | | | |
 
 <!-- Underneath, paste the REAL output for each criterion from one of your
      runs — the actual text your system produced, not a description of it.
      Name the file and function that produced it. -->
+### Criterion Output Samples
+**File & Function:** 
+[Question] ──> store.py::search ──> gate.py::check ──(Pass)──> generate.py::answer_from_chunks ──> [Final Answer]
+                                         │
+                                      (Refuse)
+                                         │
+                                         └──> gate.REFUSAL ("OUT_OF_SCOPE")
+
+**Criterion 1: Retrieved chunk contains the answer**
+* **Raw Output:**
+What clothes do students recommend for the winter? — run 1
+
+- Best distance: 0.5130 (passed the gate)
+- Sources retrieved: thread_commuting.txt, thread_laundry_timing.txt, thread_winter_advice.txt
+
+```
+Students recommend wearing layers rather than a big coat, as well as boots with actual tread. (Source: thread_winter_advice.txt)
+```
+
+
+**Criterion 2: Every answer names a source**
+* **Raw Output:**
+What do students say about parking availability? — run 1
+
+- Best distance: 0.5300 (passed the gate)
+- Sources retrieved: thread_commuting.txt, thread_parking.txt
+
+```
+Students say that west lots sell out in about three days in August, while the east lot never sells out (though it is a 12-minute walk). Additionally, street parking on Verrill is legal, free, and unmarked, which is why half the upper years use it. 
+
+Source: thread_parking.txt
+```
+
+**Criterion 3: Gate stops out-of-corpus questions**
+* **Raw Output:**
+python app.py ask "What is the capital of Mongolia?" 
+  (best distance 0.904, cutoff 0.6)
+
+I don't have enough information about that.
+
+0 model calls this session
+
+**Criterion 4: Chunks have "!" or "." in the end**
+* **Raw Output:**
+What are best study spots that aren't the library? — run 1
+
+- Best distance: 0.3912 (passed the gate)
+- Sources retrieved: thread_study_spots.txt
+
+```
+Based on the provided documents, the best study spots that aren't the library are:
+- Ridgeway Café before 10am, which is empty, quiet, and has good coffee (thread_study_spots.txt).
+- The open lounges on floors 2 through 5 of the science building, which are unlocked and almost always empty (thread_study_spots.txt).
+```
+
+**Criterion 5: Answer has exact citation of the source**
+* **Raw Output:**
+What clothes do students recommend for the winter? — run 1
+
+- Best distance: 0.5130 (passed the gate)
+- Sources retrieved: thread_commuting.txt, thread_laundry_timing.txt, thread_winter_advice.txt
+
+```
+Students recommend wearing layers rather than a big coat, as well as boots with actual tread. (Source: thread_winter_advice.txt)
+```
+
 
 ## Verdicts
 
@@ -206,11 +272,11 @@ AI helped me debugged my code. Remind me to install langchain_text_splitters (co
 
 | # | Criterion | Verdict | How I decided |
 |---|---|---|---|
-| 1 |  |  |  |
-| 2 |  |  |  |
-| 3 |  |  |  |
-| 4 |  |  |  |
-| 5 |  |  |  |
+| 1 | Retrieved chunk contains the answer | MET | Each run returned the answer 5/5 > 4/5 |
+| 2 | Every answer names a source | MET | Each run contained the correct file name 5/5 |
+| 3 | Gate stops out-of-corpus questions | MET | Each run with out-of-scope question lead to refusal 5/5 > 4/5 |
+| 4 | Chunks have "!" or "." in the end | MET | Each chunk has "!" or "." 5/5, criteria is too easy |
+| 5 | Each response contains direct quote| MISSED | MET |
 
 ## Diagnoses
 
@@ -236,7 +302,8 @@ AI helped me debugged my code. Remind me to install langchain_text_splitters (co
 
 **What I changed:**
 
-**Why I picked it:**
+**Why I picked it:** Criteria 4 is so easy with existing chunking function, which making chunks based on "." and "!".
+
 
 <!-- Connect it to a specific diagnosis above in one sentence. If you can't,
      you picked a fix because it sounded impressive. -->
