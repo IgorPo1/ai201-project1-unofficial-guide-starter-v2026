@@ -154,7 +154,8 @@ Students recommend wearing layers rather than a big coat, as well as boots with 
 
 **2.**
 AI helped me debugged my code. Remind me to install langchain_text_splitters (completely forgot that) and remind me that overlap cannot be more or equal chunk size.
-
+**3.**
+During unit 2 use it as a research tool to better undestand limitation of different chunking strategies and how my criteria can fail later when using it for diferent corpus.
 
 <!-- ── Stretch features ─────────────────────────────────────────────────────
      Doing one? Say so here BEFORE you start. A feature this README never
@@ -280,7 +281,7 @@ Students recommend wearing layers rather than a big coat, as well as boots with 
 
 ## Diagnoses
 
-Nothing is missed chuunker function was developed after Criteria "Chunks have "!" or "." in the end" so it meeting it, by design. But if documents does not have clear definition of ending of the sentence, things can still go wrong, so it does not mean that the same criteria pass during the test phase for other corpus
+Criteria "Chunks have "!" or "." in the end" not missed, because chunker function was developed after definig the criteria and well sctructured corpus, so it meeting it, by design. But if documents does not have clear definition of ending of the sentence, things can still go wrong, so it does not mean that the same criteria pass during the test phase for other corpus
 
 Criteria 5 the same, corpus itself very well structured and each chunk has complete thought, for other corpus without clear sructure this criteria fail.
 
@@ -308,8 +309,10 @@ After splits trying to merge small chunks into bigger onece within the maximum s
 ## The Improvement
 
 **What I changed:**
+Everything met and i spend time on underetanding stages in depth
 
-**Why I picked it:** Criteria 4 is so easy with existing chunking function, which making chunks based on "." and "!".
+**Why I picked it:** 
+Criteria 4 is so easy with existing chunking function, which making chunks based on "." and "!".
 
 
 <!-- Connect it to a specific diagnosis above in one sentence. If you can't,
@@ -322,13 +325,15 @@ After splits trying to merge small chunks into bigger onece within the maximum s
 
 | Criterion | Target | Run 1 | Run 2 | Run 3 | Verdict |
 |---|---|---|---|---|---|
-| 1. Retrieved chunk contains the answer | 4 of 5 |  |  |  |  |
-| 2. Every answer names a source | 5 of 5 |  |  |  |  |
-| 3. Gate stops out-of-corpus questions | 4 of 5 |  |  |  |  |
-| 4. | | | | | |
-| 5. | | | | | |
+| 1. Retrieved chunk contains the answer | 4 of 5 | 5/5 | 5/5 | 5/5 | MET |
+| 2. Every answer names a source | 5 of 5 | 5/5 | 5/5 | 5/5 | MET |
+| 3. Gate stops out-of-corpus questions | 4 of 5 | 5/5 | 5/5 | 5/5 | MET |
+| 4. Chunks have "!" or "." in the end | 5 of 5 | 5/5 | 5/5 | 5/5 | MET |
+| 5. All chunks have complete thoughts with no cut off at the start or at the end | 5 of 5 | 5/5 | 5/5 | 5/5 | MET |
 
 **Did it help?**
+
+It helps better undertand how the entire system works.
 
 <!-- Say plainly whether it did, and how you know. If it made things worse,
      say that — a change that backfired, honestly reported, earns full credit
@@ -338,6 +343,8 @@ After splits trying to merge small chunks into bigger onece within the maximum s
      Milestone 4. -->
 
 ## What's Still Broken
+All 5 critera are MET and for advice_threads corpus works fine
+I'm not so sure about other, will try it during next milestone
 
 <!-- For each criterion still missed after your fix: what you'd do about it,
      and why you stopped where you did.
@@ -348,6 +355,14 @@ After splits trying to merge small chunks into bigger onece within the maximum s
      Milestone 5. -->
 
 ## What I'd Do Differently
+
+I would raise a bar for 1 criteria "Retrieved chunk has answer" from 4/5 to 5/5. Very important criteria
+
+Check other chunking techniques instead of relying on the first that works
+
+The hardest thing is to define the criteria. And I had a huge struggle, because i did not understand the main goal, limitation and advantages of RAG systems. 
+
+
 
 <!-- Knowing what you know now — which of your five criteria would you write
      differently, and why?
