@@ -280,6 +280,13 @@ Students recommend wearing layers rather than a big coat, as well as boots with 
 
 ## Diagnoses
 
+Nothing is missed chuunker function was developed after Criteria "Chunks have "!" or "." in the end" so it meeting it, by design. But if documents does not have clear definition of ending of the sentence, things can still go wrong, so it does not mean that the same criteria pass during the test phase for other corpus
+
+Criteria 5 the same, corpus itself very well structured and each chunk has complete thought, for other corpus without clear sructure this criteria fail.
+
+# Chunker overview
+My chunker use RecursiveCharacterTextSplitter that create chunks based on Hierarchical Separators. 1 "\n\n" for paragraphs, 2 based on new line "\n", 3 spaces " ", 4 empty string "" splitting by character if maximum chunk size is smaller than 1 word. 
+After splits trying to merge small chunks into bigger onece within the maximum size limit.
 <!-- For each miss: which stage caused it, and how. The stage alone isn't
      enough — you need the mechanism.
 
