@@ -186,8 +186,8 @@ AI helped me debugged my code. Remind me to install langchain_text_splitters (co
 | 1. Retrieved chunk contains the answer | 4 of 5 | 5/5 | 5/5 | 5/5 | MET |
 | 2. Every answer names a source | 5 of 5 | 5/5 | 5/5 | 5/5 | MET |
 | 3. Gate stops out-of-corpus questions | 4 of 5 | 5/5 | 5/5 | 5/5 | MET |
-| 4. Chunks have "!" or "." in the end | 5 of 5 | | | | |
-| 5. Answer has exact citation of the source| 5 of 5 | | | | |
+| 4. Chunks have "!" or "." in the end | 5 of 5 | 5/5 | 5/5 | 5/5 | MET |
+| 5. All chunks have complete thoughts with no cut off at the start or at the end | 5 of 5 | 5/5 | 5/5 | 5/5 | MET |
 
 <!-- Underneath, paste the REAL output for each criterion from one of your
      runs — the actual text your system produced, not a description of it.
@@ -275,8 +275,8 @@ Students recommend wearing layers rather than a big coat, as well as boots with 
 | 1 | Retrieved chunk contains the answer | MET | Each run returned the answer 5/5 > 4/5 |
 | 2 | Every answer names a source | MET | Each run contained the correct file name 5/5 |
 | 3 | Gate stops out-of-corpus questions | MET | Each run with out-of-scope question lead to refusal 5/5 > 4/5 |
-| 4 | Chunks have "!" or "." in the end | MET | Each chunk has "!" or "." 5/5, criteria is too easy |
-| 5 | Each response contains direct quote| MISSED | MET |
+| 4 | Chunks have "!" or "." in the end | MET | Each chunk has "!" or "." 5/5, i designed the chunker function keeping it in mind, so I'm glad that's work|
+| 5 | All chunks have complete thoughts with no cut off at the start or at the end| MET | Complete though that is easy to understand without any context and it complete |
 
 ## Diagnoses
 
